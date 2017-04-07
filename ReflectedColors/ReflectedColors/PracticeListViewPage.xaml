@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReflectedColors.PracticeListViewPage">
+    <ListView ItemsSource="{Binding Colors}"
+              RefreshCommand="{Binding RefreshDataCommand}"
+              ItemSelected="ListView_ItemSelected"
+              RowHeight="85"
+              SeparatorVisibility="None">
+        <ListView.ItemTemplate >
+            <DataTemplate>
+               <!-- <TextCell Text="{Binding Name}"
+                          TextColor="{Binding FontColor}"
+                          Detail="{Binding Detail}"
+                          DetailColor="{Binding DetailColor}"/-->
+
+                <ViewCell>
+                    <Frame VerticalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <BoxView Color="{Binding FontColor}"/>
+                            <Label Text="{Binding Name}"
+                                       VerticalOptions="Center"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"/>
+                        </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>            
+        </ListView.ItemTemplate>        
+    </ListView>
+</ContentPage>
